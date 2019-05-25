@@ -43,3 +43,11 @@
   files: ^Puppetfile$
   language: ruby
   name: Validate r10k Puppetfile
+
+- id: rubocop
+  additional_dependencies: ['rubocop']
+  description: Check ruby programs for stylistic problems
+  entry: rubocop
+  files: \.rb$
+  language: ruby
+  name: rubocop
