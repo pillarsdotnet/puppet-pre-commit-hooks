@@ -1,44 +1,52 @@
--   id: epp-validate
-    additional_dependencies: ['puppet']
-    description: Validate syntax of Puppet EPP templates
-    entry: epp-validate
-    files: \.epp$
-    language: ruby
-    name: Validate EPP templates
+- id: epp-validate
+  additional_dependencies: ['puppet']
+  description: Validate syntax of Puppet EPP templates
+  entry: epp-validate
+  files: \.epp$
+  language: ruby
+  name: Validate EPP templates
 
--   id: erb-validate
-    description: Validate syntax of Ruby ERB templates
-    entry: erb-validate
-    files: \.erb$
-    language: ruby
-    name: Validate ERB templates
+- id: erb-validate
+  description: Validate syntax of Ruby ERB templates
+  entry: erb-validate
+  files: \.erb$
+  language: ruby
+  name: Validate ERB templates
 
--   id: g10k-validate
-    description: Validate syntax of Puppetfile using g10k
-    entry: g10k-validate
-    files: ^Puppetfile$
-    language: ruby
-    name: Validate g10k Puppetfile
+- id: g10k-validate
+  description: Validate syntax of Puppetfile using g10k
+  entry: g10k-validate
+  files: ^Puppetfile$
+  language: ruby
+  name: Validate g10k Puppetfile
 
--   id: puppet-lint
-    additional_dependencies: ['puppet-lint']
-    description: Check Puppet manifests for stylistic problems
-    entry: puppet-lint
-    files: \.pp$
-    language: ruby
-    name: puppet-lint
+- id: puppet-lint
+  additional_dependencies: ['puppet-lint']
+  description: Check Puppet manifests for stylistic problems
+  entry: puppet-lint
+  files: \.pp$
+  language: ruby
+  name: puppet-lint
 
--   id: puppet-validate
-    additional_dependencies: ['puppet']
-    description: Validate syntax of Puppet manifests
-    entry: puppet-validate
-    files: \.pp$
-    language: ruby
-    name: Validate Puppet manifests
+- id: puppet-validate
+  additional_dependencies: ['puppet']
+  description: Validate syntax of Puppet manifests
+  entry: puppet-validate
+  files: \.pp$
+  language: ruby
+  name: Validate Puppet manifests
 
--   id: r10k-validate
-    description: Validate syntax of Puppetfile using r10k
-    entry: r10k-validate
-    files: ^Puppetfile$
-    language: ruby
-    name: Validate r10k Puppetfile
+- id: r10k-validate
+  description: Validate syntax of Puppetfile using r10k
+  entry: r10k-validate
+  files: ^Puppetfile$
+  language: ruby
+  name: Validate r10k Puppetfile
+
+- id: rubocop
+  additional_dependencies: ['rubocop']
+  description: Check ruby programs for stylistic problems
+  entry: rubocop
+  files: \.rb$
+  language: ruby
+  name: rubocop
