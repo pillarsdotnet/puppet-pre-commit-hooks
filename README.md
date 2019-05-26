@@ -5,18 +5,31 @@ Puppet pre-commit hooks
 
 Provides the following hooks:
 
-* **puppet-validate:** uses `puppet parser validate` to check the syntax of
-  Puppet manifests.
+* **g10k-validate:** uses [g10k][g10k] to validate [Puppetfile][puppetfile] syntax.
+
+* **epp-validate:** validates and syntax-checks [Puppet's epp templates][epp].
+
+* **erb-validate:** compiles and syntax-checks [Ruby erb templates][erb].
 
 * **puppet-lint:** uses [`puppet-lint`](http://puppet-lint.com/) to check for
   stylistic issues with your Puppet manifests.
 
-* **erb-validate:** compiles and syntax-checks Ruby erb templates.
+* **puppet-validate:** uses `puppet parser validate` to check the syntax of
+  Puppet manifests.
 
-* **epp-validate:** validates and syntax-checks [Puppet's epp templates][epp].
+* **r10k-validate:** uses [r10k][r10k] to validate [Puppetfile][puppetfile] syntax.
+
+* **rubocop:** uses [rubocop][rubocop] to check the style of ruby code.
+
+* **ruby-validate:** uses ruby to validate the syntax of ruby code.
 
 
 [epp]: https://docs.puppet.com/puppet/latest/lang_template_epp.html
+[erb]: https://puppet.com/docs/puppet/latest/lang_template_erb.html
+[g10k]: https://github.com/xorpaul/g10k
+[puppetfile]: https://puppet.com/docs/pe/latest/puppetfile.html
+[r10k]: https://github.com/puppetlabs/r10k
+[rubocop]: https://github.com/rubocop-hq/rubocop
 
 ## Usage
 
@@ -26,24 +39,27 @@ Provides the following hooks:
    root of your git repository:
 
     ```yaml
-    -   repo: https://github.com/chriskuehl/puppet-pre-commit-hooks.git
-        sha: v2.0.2
-        hooks:
-        -   id: puppet-validate
-        -   id: erb-validate
-        -   id: epp-validate
-        -   id: puppet-lint
-            args:
+    - repo: https://github.com/chriskuehl/puppet-pre-commit-hooks.git
+      sha: v2.0.2
+      hooks:
+        - id: epp-validate
+        - id: erb-validate
+        - id: puppet-lint
+          args:
             -   --fail-on-warnings
+        - id: puppet-validate
+	- id: r10k-validate
+	- id: rubocop
+	- id: ruby-validate
     ```
 
     You'll almost certainly want to adjust the puppet-lint args for your
     project. I find the following most helpful:
 
     ```yaml
-            -   --no-80chars-check
-            -   --no-documentation-check
-            -   --no-puppet_url_without_modules-check
+         - --no-80chars-check
+         - --no-documentation-check
+         - --no-puppet_url_without_modules-check
     ```
 
 3. Run `pre-commit install` to add pre-commit git hooks.
