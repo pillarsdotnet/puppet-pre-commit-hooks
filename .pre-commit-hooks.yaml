@@ -51,3 +51,10 @@
   files: \.rb$
   language: ruby
   name: rubocop
+
+- id: ruby-validate
+  description: Validate syntax of ruby code
+  entry: ruby-validate
+  files: \.rb$
+  language: ruby
+  name: Validate ruby code
