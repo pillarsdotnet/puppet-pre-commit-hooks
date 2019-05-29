@@ -2,7 +2,7 @@ require 'English'
 
 status = 0
 ARGV.each do |file|
-  output = `g10k -puppetfile "#{file}" check 2>&1`
+  output = `g10k -dryrun -puppetfilelocation "#{file}" check 2>&1`
   next if $CHILD_STATUS.exitstatus == 0
   puts "#{file}: failed g10k validation"
   puts output
